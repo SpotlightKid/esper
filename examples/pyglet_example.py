@@ -1,4 +1,10 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+from __future__ import print_function, unicode_literals
+
 import pyglet
+
 import esper
 
 
@@ -9,13 +15,13 @@ RESOLUTION = 720, 480
 ##################################
 #  Define some Components:
 ##################################
-class Velocity:
+class Velocity(object):
     def __init__(self, x=0.0, y=0.0):
         self.x = x
         self.y = y
 
 
-class Renderable:
+class Renderable(object):
     def __init__(self, sprite):
         self.sprite = sprite
         self.w = sprite.width
@@ -116,3 +122,4 @@ if __name__ == "__main__":
     #        account for this. See the example Processors above.
     pyglet.clock.schedule_interval(world.process, interval=1.0/FPS)
     pyglet.app.run()
+

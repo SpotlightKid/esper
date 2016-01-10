@@ -1,9 +1,21 @@
+# -*- coding: utf-8 -*-
+
 import esper
 
 from functools import lru_cache
 
+import sys
 
-class World:
+if sys.version_info[0] < 3:
+    from future.builtins import super
+
+try:
+    from functools import lru_cache
+except ImportError:
+    from backports.functools_lru_cache import lru_cache
+
+
+class World(object):
     def __init__(self):
         """A World object keeps track of all Entities, Components and Processors.
 
@@ -90,6 +102,10 @@ class World:
         :param entity: The Entity to associate the Component with.
         :param component_instance: A Component instance.
         """
+        if not isinstance(component_instance, object):
+            raise TypeError("Component must be a new-style class instance "
+                            "(derive from object).")
+
         component_type = type(component_instance)
 
         if component_type not in self._components:
