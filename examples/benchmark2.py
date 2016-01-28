@@ -36,41 +36,41 @@ cached_world = esper.CachedWorld()
 #################################
 # Define some generic components:
 #################################
-class Velocity:
+class Velocity(object):
     def __init__(self, x=0.0, y=0.0):
         self.x = x
         self.y = y
 
 
-class Position:
+class Position(object):
     def __init__(self, x=0.0, y=0.0):
         self.x = x
         self.y = y
 
 
-class Health:
+class Health(object):
     def __init__(self):
         self.hp = 100
 
 
-class Command:
+class Command(object):
     def __init__(self):
         self.attack = False
         self.defend = True
 
 
-class Projectile:
+class Projectile(object):
     def __init__(self):
         self.size = 10
         self.lifespan = 100
 
 
-class Damageable:
+class Damageable(object):
     def __init__(self):
         self.defense = 45
 
 
-class Brain:
+class Brain(object):
     def __init__(self):
         self.smarts = 9000
 
@@ -80,7 +80,7 @@ class Brain:
 ##########################
 class MovementProcessor(esper.Processor):
     def __init__(self):
-        super().__init__()
+        super(MovementProcessor, self).__init__()
 
     def process(self):
         for ent, (vel, pos) in self.world.get_components(Velocity, Position):
