@@ -138,13 +138,13 @@ def create_entities(world, number):
         world.add_component(enemy_type_b, ComponentE())
 
 
-class ComponentA:
+class ComponentA(object):
     def __init__(self):
         self.a = -66
         self.b = 9999.99
 
 
-class ComponentB:
+class ComponentB(object):
     def __init__(self):
         self.attrib_a = True
         self.attrib_b = False
@@ -152,20 +152,20 @@ class ComponentB:
         self.attrib_d = True
 
 
-class ComponentC:
+class ComponentC(object):
     def __init__(self):
         self.x = 0
         self.y = 0
         self.z = None
 
 
-class ComponentD:
+class ComponentD(object):
     def __init__(self):
         self.direction = "left"
         self.previous = "right"
 
 
-class ComponentE:
+class ComponentE(object):
     def __init__(self):
         self.items = {"itema": None, "itemb": 1000}
         self.points = [a + 2 for a in list(range(44))]
