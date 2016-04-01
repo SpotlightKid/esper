@@ -1,12 +1,14 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-import pyglet
-from pyglet.gl import *
-from pyglet.window import key
+import sys
 
 if sys.version_info[0] < 3:
     from future.builtins import super
+
+import pyglet
+from pyglet.gl import *
+from pyglet.window import key
 
 import esper
 
@@ -19,13 +21,13 @@ BGCOLOR = (0, 0, 0, 255)
 ##################################
 #  Define some Components:
 ##################################
-class Velocity:
+class Velocity(object):
     def __init__(self, x=0.0, y=0.0):
         self.x = x
         self.y = y
 
 
-class Renderable:
+class Renderable(object):
     def __init__(self, texture, width, height, posx, posy):
         self.texture = texture
         self._x = posx
