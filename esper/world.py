@@ -1,8 +1,6 @@
 # -*- coding: utf-8 -*-
 
-import esper
-
-from functools import lru_cache
+from __future__ import absolute_import
 
 import sys
 
@@ -13,6 +11,8 @@ try:
     from functools import lru_cache
 except ImportError:
     from backports.functools_lru_cache import lru_cache
+
+from .templates import Processor
 
 
 class World(object):
@@ -40,7 +40,7 @@ class World(object):
         subclassed from the Processor class
         :param priority: A higher number is processed first.
         """
-        assert issubclass(processor_instance.__class__, esper.Processor)
+        assert issubclass(processor_instance.__class__, Processor)
         processor_instance.priority = priority
         processor_instance.world = self
         self._processors.append(processor_instance)
