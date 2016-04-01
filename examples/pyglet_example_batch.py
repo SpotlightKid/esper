@@ -5,6 +5,9 @@ import pyglet
 from pyglet.gl import *
 from pyglet.window import key
 
+if sys.version_info[0] < 3:
+    from future.builtins import super
+
 import esper
 
 

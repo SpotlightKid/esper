@@ -5,6 +5,10 @@ import gc
 import pickle
 import sys
 import time
+
+if sys.version_info[0] < 3:
+    from future.builtins import super
+
 try:
     from matplotlib import pyplot
 except:
@@ -80,7 +84,7 @@ class Brain(object):
 ##########################
 class MovementProcessor(esper.Processor):
     def __init__(self):
-        super(MovementProcessor, self).__init__()
+        super().__init__()
 
     def process(self):
         for ent, (vel, pos) in self.world.get_components(Velocity, Position):

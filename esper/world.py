@@ -178,7 +178,7 @@ class World(object):
 class CachedWorld(World):
     def __init__(self, cache_size=128):
         """A sub-class of World using an LRU cache for Entity lookups."""
-        super(CachedWorld, self).__init__()
+        super().__init__()
         self.set_cache_size(cache_size)
 
     def set_cache_size(self, size):
